@@ -13,10 +13,11 @@ import java.util.List;
 
 import ru.sbertech.currencyconvert.R;
 import ru.sbertech.currencyconvert.network.ValuteResponse;
+import ru.sbertech.currencyconvert.repository.ValuteInfo;
 
 public class CustomSpinnerAdapter extends ArrayAdapter<ValuteResponse> {
 
-    private List<ValuteResponse> data;
+    private List<ValuteInfo> data;
     private Activity activity;
 
     public CustomSpinnerAdapter(Activity activity) {
@@ -32,34 +33,34 @@ public class CustomSpinnerAdapter extends ArrayAdapter<ValuteResponse> {
             return data.size();
     }
 
-    public void setData(List<ValuteResponse> data) {
+    public void setData(List<ValuteInfo> data) {
         this.data = data;
     }
 
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        final ValuteResponse currencyOld = data.get(position);
+        final ValuteInfo currencyOld = data.get(position);
         View view = convertView;
-        if(view == null){
+        if (view == null) {
             LayoutInflater inflater = activity.getLayoutInflater();
             view = inflater.inflate(R.layout.custom_dropdown_item, null);
         }
         TextView textView = (TextView) view.findViewById(R.id.dropdown_item);
-//        textView.setText(currencyOld.getName());
+        textView.setText(currencyOld.getName());
         return view;
     }
 
     @Override
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        final ValuteResponse currencyOld = data.get(position);
+        final ValuteInfo currencyOld = data.get(position);
         View view = convertView;
-        if(view == null){
+        if (view == null) {
             LayoutInflater inflater = activity.getLayoutInflater();
             view = inflater.inflate(R.layout.custom_dropdown_item, null);
         }
         TextView textView = (TextView) view.findViewById(R.id.dropdown_item);
-//        textView.setText(currencyOld.getName());
+        textView.setText(currencyOld.getName());
         return view;
     }
 }

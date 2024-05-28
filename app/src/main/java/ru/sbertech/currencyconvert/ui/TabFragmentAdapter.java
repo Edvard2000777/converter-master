@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TabFragmentAdapter extends FragmentPagerAdapter {
+public class   TabFragmentAdapter extends FragmentPagerAdapter {
 
     private List<TabFragment> tab;
 
